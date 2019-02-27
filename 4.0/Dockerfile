@@ -9,7 +9,8 @@ RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 #COPY redis.conf /usr/local/etc/redis/redis.conf
 EXPOSE  6379
 ENV PORT=6379
-ENV REDISC_REDIS-PASS=password
+ENV REDIS_PASS=password
+ENV REDISC_REQUIREPASS=${REDIS_PASS}
 ENV REDISC_TIMEOUT=0
 ENV REDISC_DBFILENAME=dump.rdb
 ENV REDISC_LOGLEVEL=notice
