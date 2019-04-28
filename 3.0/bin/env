@@ -1,2 +1,0 @@
-export CONFIG_FILE=/etc/redis/redis.conf
-export DELIMITER=" "

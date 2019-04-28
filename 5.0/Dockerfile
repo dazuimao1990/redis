@@ -1,4 +1,4 @@
-FROM redis:4-alpine
+FROM redis:5-alpine
 # china repositories mirror
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 RUN apk update && apk add --no-cahce bash tzdata
@@ -24,5 +24,6 @@ ENV REDISC_NOTIFY-KEYSPACE-EVENTS=Ex
 ENV REDISC_LOGFILE=/data/redis.log
 VOLUME /data
 COPY start.sh /start.sh
+COPY redis.conf /usr/local/etc/redis/redis.conf
 RUN chmod +x /start.sh
 CMD [ "sh","/start.sh" ]
